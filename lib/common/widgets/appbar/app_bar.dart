@@ -19,6 +19,7 @@ class BasicAppbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      automaticallyImplyLeading: false,
       surfaceTintColor: Colors.transparent,
       backgroundColor: backgroundColor ?? Colors.transparent,
       elevation: 0,
@@ -28,9 +29,10 @@ class BasicAppbar extends StatelessWidget implements PreferredSizeWidget {
       leading: hideBack
           ? null
           : IconButton(
-              onPressed: onBack ?? () {
-                Navigator.pop(context);
-              },
+              onPressed: onBack ??
+                  () {
+                    Navigator.pop(context);
+                  },
               icon: Container(
                 height: 50,
                 width: 50,

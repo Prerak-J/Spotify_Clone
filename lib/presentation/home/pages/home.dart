@@ -8,7 +8,6 @@ import 'package:spotify_clone/presentation/home/widgets/news_songs.dart';
 import 'package:spotify_clone/presentation/home/widgets/play_list.dart';
 import 'package:spotify_clone/presentation/profile/pages/profile.dart';
 
-import '../../../common/widgets/appbar/app_bar.dart';
 import '../../../core/configs/assets/app_vectors.dart';
 
 class HomePage extends StatefulWidget {
@@ -30,13 +29,21 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: BasicAppbar(
-        hideBack: true,
-        action: _profImg(),
-        title: SvgPicture.asset(
-          AppVectors.logo,
-          height: 40,
-          width: 40,
+      appBar: AppBar(
+      automaticallyImplyLeading: false,
+      surfaceTintColor: Colors.transparent,
+      backgroundColor:Colors.transparent,
+      leadingWidth: 0,
+      elevation: 0,
+        actions: [_profImg(),],
+        flexibleSpace: Container(
+          padding: const EdgeInsets.only(bottom: 8, left: 14),
+          alignment: Alignment.bottomLeft,
+          child: SvgPicture.asset(
+            AppVectors.logo,
+            height: 40,
+            width: 40,
+          ),
         ),
       ),
       body: SingleChildScrollView(

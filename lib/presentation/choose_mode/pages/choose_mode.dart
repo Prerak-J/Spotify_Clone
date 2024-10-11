@@ -146,7 +146,11 @@ class _ChooseModePageState extends State<ChooseModePage> {
                 ),
                 BasicAppButton(
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => const HomePage()));
+                      Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(builder: (BuildContext context) => const HomePage()),
+                        (route) => false,
+                      );
                     },
                     title: 'Continue')
               ],
