@@ -30,12 +30,14 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-      automaticallyImplyLeading: false,
-      surfaceTintColor: Colors.transparent,
-      backgroundColor:Colors.transparent,
-      leadingWidth: 0,
-      elevation: 0,
-        actions: [_profImg(),],
+        automaticallyImplyLeading: false,
+        surfaceTintColor: Colors.transparent,
+        backgroundColor: Colors.transparent,
+        leadingWidth: 0,
+        elevation: 0,
+        actions: [
+          _profImg(),
+        ],
         flexibleSpace: Container(
           padding: const EdgeInsets.only(bottom: 8, left: 14),
           alignment: Alignment.bottomLeft,
@@ -60,7 +62,18 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
               height: 260,
               child: TabBarView(
                 controller: _tabController,
-                children: [const NewsSongs(), Container(), Container(), Container()],
+                children: const [
+                  NewsSongs(),
+                  Center(
+                    child: Text('No videos available'),
+                  ),
+                  Center(
+                    child: Text('No artists available'),
+                  ),
+                  Center(
+                    child: Text('No podcasts available'),
+                  ),
+                ],
               ),
             ),
             const PlayList(),
