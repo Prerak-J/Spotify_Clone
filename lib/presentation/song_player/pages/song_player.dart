@@ -24,11 +24,12 @@ class SongPlayerPage extends StatelessWidget {
       ),
       body: BlocProvider(
         create: (_) => SongPlayerCubit()..loadSong(songEntity.songUrl),
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
-          child: Builder(builder: (context) {
-            return Column(
+        child: Builder(builder: (context) {
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
+            child: Column(
               children: [
+                const Spacer(),
                 _songCover(context),
                 const SizedBox(
                   height: 20,
@@ -37,18 +38,19 @@ class SongPlayerPage extends StatelessWidget {
                 const SizedBox(
                   height: 30,
                 ),
-                _songPlayer(context)
+                _songPlayer(context),
+                const Spacer(flex: 3,),
               ],
-            );
-          }),
-        ),
+            ),
+          );
+        }),
       ),
     );
   }
 
   Widget _songCover(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height / 2,
+      height: MediaQuery.of(context).size.height / 2.2,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30),
         image: DecorationImage(
@@ -116,7 +118,7 @@ class SongPlayerPage extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                context.read<SongPlayerCubit>().playOrPauseSong();
+                if(state is SongPlayerLoaded) context.read<SongPlayerCubit>().playOrPauseSong();
               },
               child: Container(
                 height: 60,

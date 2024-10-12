@@ -108,6 +108,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
 
   Widget _tabs() {
     return TabBar(
+      splashFactory: NoSplash.splashFactory,
       tabAlignment: TabAlignment.center,
       controller: _tabController,
       isScrollable: true,
